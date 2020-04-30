@@ -6,7 +6,7 @@ const public = path.join(__dirname, 'build');
 app.use(express.static(public));
 
 app.get('*', (req, res) => {
-    res.redirect('/');
+    res.sendFile(path.join(public, 'index.html'))
 });
 
 const port = process.env.PORT || 3000;
