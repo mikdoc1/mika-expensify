@@ -4,9 +4,6 @@ import './App.css';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import configureStore from './store/configureStore';
-import * as actionExpenses from './actions/expenses';
-import * as actionCreators from './actions/filters';
-import getVisibleExpenses from './selectors/expenses';
 import { Provider } from 'react-redux';
 
 
