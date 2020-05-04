@@ -7,9 +7,8 @@ const filtersReducerDefaultState = {
     startDate: moment().startOf('month'),
     endDate: moment().endOf('month')
   };
-  
 
-  const filtersReducer = (state = filtersReducerDefaultState, action) => {
+  const filtersReducer = (state = filtersReducerDefaultState, action) => {  
     switch (action.type) {
       case 'SET_TEXT_FILTER':
         return {

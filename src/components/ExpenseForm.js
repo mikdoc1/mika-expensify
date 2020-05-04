@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
+import numeral from 'numeral';
 
 
 
@@ -10,8 +11,8 @@ class ExpenseForm extends Component {
         super(props);
         this.state = {
             description: this.props.expense ? this.props.expense.description : '',
-            amount: this.props.expense ? this.props.expense.amount : '',
-            note: '',
+            amount: this.props.expense ? numeral(this.props.expense.amount / 100).format('0,0.00') : '',
+            note: this.props.expense ? this.props.expense.note : '',
             isCalendarFocused: false,
             createdAt: this.props.expense ? moment(this.props.expense.createdAt) : moment(),
             error: ''

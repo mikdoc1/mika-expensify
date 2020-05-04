@@ -5,6 +5,7 @@ import { DateRangePicker } from 'react-dates';
 import { v4 as uuidv4 } from 'uuid';
 
 
+
 class ExpenseListFilter extends React.Component {
     constructor (props) {
         super(props);
@@ -22,8 +23,10 @@ class ExpenseListFilter extends React.Component {
         }
     }
 
-    render = () => (
-        <div>
+    render = () => {
+
+        return (
+            <div>
             <input  type="text" 
                     value={this.props.filters.text}
                     onChange={(e) => this.props.onFilterByText(e.target.value)}/>
@@ -33,20 +36,23 @@ class ExpenseListFilter extends React.Component {
             </select>
             <DateRangePicker    startDate={this.props.filters.startDate}
                                 startDateId={uuidv4()}
-                                endDate={this.props.filters.endDate}
+                                endDate={this.props.filters.startDate}
                                 endDateId={uuidv4()}
                                 numberOfMonths={1}
                                 isOutsideRange={() => false}
                                 showClearDates={true}
                                 onDatesChange={({ startDate, endDate }) => { 
-                                                                this.props.onDatesStartChange(startDate); 
-                                                                this.props.onDatesEndChange(endDate) }}
+                                                                
+                                                                // this.props.onDatesStartChange(startDate); 
+                                                                // this.props.onDatesEndChange(endDate)
+                                                             }}
                                 focusedInput={this.state.isCalendarFocused}
                                 onFocusChange={(calFocused) => this.setState({ isCalendarFocused: calFocused})}/>
                                                                 
                                 
         </div>
-    )
+        )
+    }
 };
 
 const mapStateToProps = state => {
@@ -61,8 +67,8 @@ const mapDispatchToProps = dispatch => {
       onFilterByText: (text) => dispatch(actions.setTextFilter(text)),
       onFilterByAmount: () => dispatch(actions.sortByAmount()),
       onFilterByDate: () => dispatch(actions.sortByDate()),
-      onDatesStartChange: (startDate) => dispatch(actions.setStartDate(startDate)),
-      onDatesEndChange: (endDate) => dispatch(actions.setEndDate(endDate))
+    //   onDatesStartChange: (startDate) => dispatch(actions.setStartDate(startDate)),
+    //   onDatesEndChange: (endDate) => dispatch(actions.setEndDate(endDate))
     }
 }
 export { ExpenseListFilter }

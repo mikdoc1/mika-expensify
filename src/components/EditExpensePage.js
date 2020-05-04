@@ -8,11 +8,14 @@ export const EditExpensePage = (props) => {
   return (
     <div>
       <ExpenseForm  onSubmit={(expense) => {
+                        
+                        
                         props.onEditExpense(expense, props.expense.id);
                         props.history.push('/')
                     }}
                     expense={props.expense}/>
       <button onClick={() => {
+  
                         props.onDeleteExpense(props.expense.id); 
                         props.history.push('/')
                       }}>Remove</button>
@@ -21,14 +24,15 @@ export const EditExpensePage = (props) => {
 };
 
 const mapStateToProps = (state, props) => {
+
   return {
     expense: state.expenses.find(expense => expense.id === props.match.params.id)
   }
 }
 const mapDispatchToProps = dispatch => {
   return {
-    onEditExpense: (expense, id) => dispatch(actions.editExpense(id, expense)),
-    onDeleteExpense: (id) => dispatch(actions.removeExpense({id}))
+    onEditExpense: (expense, id) => dispatch(actions.startEditExpense(id, expense)),
+    onDeleteExpense: (id) => dispatch(actions.startRemoveExpense({id}))
   }
 }
 

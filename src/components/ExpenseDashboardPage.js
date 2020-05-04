@@ -8,8 +8,7 @@ const ExpenseDashboardPage = () => (
   <div>
     <ExpensesSummary />
     <ExpenseListFilter />
-    <ExpenseList />
-    
+    <ExpenseList />    
   </div>
 );
 

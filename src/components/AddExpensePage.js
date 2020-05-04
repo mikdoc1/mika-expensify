@@ -3,19 +3,24 @@ import ExpenseForm from './ExpenseForm';
 import { connect } from 'react-redux';
 import * as actions from '../actions/expenses'
 
-export const AddExpensePage = (props) => (
-  <div>
+export const AddExpensePage = (props) => {
+
+  return (
+    <div>
     <h1>Add Expense</h1>
     <ExpenseForm onSubmit={(expense) => {
-                            props.onAddExpense(expense); 
+                            props.onStartAddExpense(expense); 
                             props.history.push('/')
                           }}/>            
   </div>
-);
+  )
+};
+
+
 
 const matDispatchToProps = dispatch => {
   return {
-    onAddExpense: (expense) => dispatch(actions.addExpense(expense))
+    onStartAddExpense: (expense) => dispatch(actions.startAddExpense(expense))
   }
 }
 

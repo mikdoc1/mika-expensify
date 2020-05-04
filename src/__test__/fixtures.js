@@ -2,25 +2,25 @@ import moment from 'moment'
 
 const expenses = [
     {
-        id: '1',
+        id: 'water',
         description: 'water',
         amount: 300,
-        note: '',
-        createdAt: 0
+        note: 'water bill',
+        createdAt: 402000
     },
     {
-        id: '2',
+        id: 'inet',
         description: 'inet',
         amount: 200,
-        note: '',
-        createdAt: 0
+        note: 'inet bill',
+        createdAt: 3303000
     },
     {
-        id: '3',
+        id: 'gum',
         description: 'gum',
         amount: 500,
-        note: '',
-        createdAt: 0
+        note: 'gum bill',
+        createdAt: 2333000
     }
 ];
 

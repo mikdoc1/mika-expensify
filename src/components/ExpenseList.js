@@ -7,7 +7,7 @@ export const ExpenseList = (props) => {
     let list = (
         <ul>
             {props.expenses.map(expense => {
-                return <ExpenseListItem key={expense.id} {...expense}/>
+                return <ExpenseListItem key={expense.description} {...expense}/>
             })}
         </ul>
     )
